@@ -75,11 +75,12 @@ const AddExpense = ({ setShowAddExpense, item: product }) => {
         setPrice("")
         setCategory("")
         setDate("")
+        setShowAddExpense(false)
     }
 
     return (
 
-        <Box sx={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0, zIndex: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: 'rgba(255,255,255,0.5)' }}>
+        <Box sx={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0, zIndex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: 'rgba(255,255,255,0.5)' }}>
             <Box component='form' onSubmit={(e) => { e.preventDefault(); addExpenses() }} sx={{ width: '538px', height: '335px', p: '20px', bgcolor: '#EFEFEF', borderRadius: '15px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
                 <Typography variant='h4' component='h2' sx={{ marginBottom: '10px' }}>Add Expenses</Typography>
