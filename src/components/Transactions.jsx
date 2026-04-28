@@ -37,7 +37,7 @@ const Transactions = () => {
         const filteredExpenses = expenses.filter((temp) => temp.id !== item.id)
         setExpenses(filteredExpenses)
         setAmount(Number(amount) + Number(item.price))
-        localStorage.setItem('WalletBalance', Number(amount) + Number(item.price))
+        localStorage.setItem('walletBalance', Number(amount) + Number(item.price))
         localStorage.setItem('expenses', JSON.stringify(filteredExpenses))
     }
     const editItem = (item) => {
