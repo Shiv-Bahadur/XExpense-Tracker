@@ -11,7 +11,7 @@ export const ExpensesContext = createContext()
 
 function App() {
 
-  const [amount, setAmount] = useState(localStorage.getItem('WalletBalance') ?? 5000)
+  const [amount, setAmount] = useState(localStorage.getItem('walletBalance') ?? 5000)
   const [expenses, setExpenses] = useState(JSON.parse(localStorage.getItem('expenses')) ?? [])
   return (
     <>

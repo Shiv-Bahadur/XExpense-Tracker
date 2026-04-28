@@ -13,9 +13,9 @@ const ExpenseBarChart = () => {
     let entertainment = 0, food = 0, travel = 0;
 
     for (let expense of expenses) {
-        if (expense.category == 'Food') {
+        if (expense.category == 'food') {
             food += Number(expense.price)
-        } else if (expense.category == 'Entertainment') {
+        } else if (expense.category == 'entertainment') {
             entertainment += Number(expense.price)
         } else {
             travel += Number(expense.price)

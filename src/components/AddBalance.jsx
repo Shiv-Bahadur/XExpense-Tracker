@@ -13,7 +13,7 @@ const AddBalance = ({ setShowAddBalance }) => {
             return
         }
 
-        localStorage.setItem('WalletBalance', Number(amount) + Number(balance))
+        localStorage.setItem('walletBalance', Number(amount) + Number(balance))
         setAmount(Number(amount) + Number(balance))
         setShowAddBalance(false)
     }

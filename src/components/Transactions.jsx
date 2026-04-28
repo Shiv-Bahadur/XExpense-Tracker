@@ -27,9 +27,9 @@ const Transactions = () => {
 
 
     const categoryMap = {
-        Food: { label: "Food", icon: IoPizzaOutline },
-        Entertainment: { label: "Entertainment", icon: CiGift },
-        Travel: { label: "Travel", icon: CiRollingSuitcase }
+        food: { label: "Food", icon: IoPizzaOutline },
+        entertainment: { label: "Entertainment", icon: CiGift },
+        travel: { label: "Travel", icon: CiRollingSuitcase }
     };
 
     const deleteItem = (item) => {
@@ -67,7 +67,7 @@ const Transactions = () => {
                                             <Box sx={{ width: '50px', height: '50px', borderRadius: '50%', bgcolor: '#D9D9D9', p: '10px' }}>{<Icon size={30} />}</Box>
                                             <Box>
                                                 <Typography sx={{ fontWeight: 400 }}>{item.title}</Typography>
-                                                <Typography sx={{ color: '#9B9B9B' }}>{item.spendingDate}</Typography>
+                                                <Typography sx={{ color: '#9B9B9B' }}>{item.date}</Typography>
                                             </Box>
                                         </Box>
                                         <Box sx={{ display: 'flex', gap: '20px', alignItems: 'center', justifyContent: 'center' }}>

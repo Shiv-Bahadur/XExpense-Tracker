@@ -13,7 +13,7 @@ const AddExpense = ({ setShowAddExpense, item :product}) => {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [category, setCategory] = useState("")
-    const [spendingDate, setSpendingDate] = useState("")
+    const [date, setDate] = useState("")
 
     const addExpenses = () => {
         if (!title) {
@@ -28,7 +28,7 @@ const AddExpense = ({ setShowAddExpense, item :product}) => {
             enqueueSnackbar("Select category", { variant: 'warning' })
             return
         }
-        if (!spendingDate) {
+        if (!date) {
             enqueueSnackbar("Select date", { variant: 'warning' })
             return
         }
@@ -40,10 +40,10 @@ const AddExpense = ({ setShowAddExpense, item :product}) => {
                 alert("Not enough balance in your wallet")
                 return
             }
-            let modified = expenses.map((exp) => exp.id === product.id ? { ...exp, title, price, category, spendingDate } : exp)
+            let modified = expenses.map((exp) => exp.id === product.id ? { ...exp, title, price, category, date } : exp)
             setExpenses(modified);
             setAmount(Number(amount) + Number(product.price) - Number(price))
-            localStorage.setItem('WalletBalance', Number(amount) + Number(product.price) - Number(price))
+            localStorage.setItem('walletBalance', Number(amount) + Number(product.price) - Number(price))
             localStorage.setItem('expenses', JSON.stringify(modified))
             setShowAddExpense(false)
             return
@@ -56,15 +56,15 @@ const AddExpense = ({ setShowAddExpense, item :product}) => {
 
 
 
-        localStorage.setItem('WalletBalance', Number(amount) - Number(price))
+        localStorage.setItem('walletBalance', Number(amount) - Number(price))
         setAmount(Number(amount) - Number(price))
 
         let item = {
             id: Date.now(),
             title,
-            price,
+            price:Number(price),
             category,
-            spendingDate
+            date
         }
         console.log(item)
 
@@ -74,7 +74,7 @@ const AddExpense = ({ setShowAddExpense, item :product}) => {
         setTitle("")
         setPrice("")
         setCategory("")
-        setSpendingDate("")
+        setDate("")
     }
 
     return (
@@ -101,13 +101,13 @@ const AddExpense = ({ setShowAddExpense, item :product}) => {
                             name='category'
                             onChange={(e) => setCategory(e.target.value)}
                         >
-                            <MenuItem value='Food'>Food</MenuItem>
-                            <MenuItem value='Entertainment'>Entertainment</MenuItem>
-                            <MenuItem value="Travel">Travel</MenuItem>
+                            <MenuItem value='food'>Food</MenuItem>
+                            <MenuItem value='entertainment'>Entertainment</MenuItem>
+                            <MenuItem value="travel">Travel</MenuItem>
                         </Select>
                     </FormControl>
 
-                    <TextField fullWidth type='date' name='date' id="outlined-basic" variant="outlined" sx={{ borderRadius: '15px' }} value={spendingDate} onChange={(e) => setSpendingDate(e.target.value)} />
+                    <TextField fullWidth type='date' name='date' id="outlined-basic" variant="outlined" sx={{ borderRadius: '15px' }} value={date} onChange={(e) => setDate(e.target.value)} />
                 </Box>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: '20px' }}>
