@@ -1,0 +1,11 @@
+.container{
+    background-color: #9B9B9B;
+    padding: 50px;
+    width: 355.41px;
+    height: 181px;
+    border-radius: 15px;
+}
+
+button{
+    padding: 10px;
+}
